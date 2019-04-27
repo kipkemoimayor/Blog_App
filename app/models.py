@@ -1,5 +1,5 @@
 from . import db
-
+from werkzeug.security import generate_password_hash,check_password_hash
 class Users(db.Model):
     __tablename__='users'
 
@@ -16,4 +16,3 @@ class Users(db.Model):
 class Role(db.Model):
     __tablename__='roles'
     id=db.Column(db.Integer,primary_key=True)
-    
