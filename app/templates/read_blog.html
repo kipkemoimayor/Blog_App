@@ -2,13 +2,19 @@
 {%import "bootstrap/wtf.html" as wtf%}
 {%block content%}
 <div class="container-fluid">
+    {%if current_user.is_authenticated%}
   <div class="jumbotron">
-    <h1>{{message}}</h1>
+    <h1>{{data}}</h1>
+    {{wtf.quick_form(deleform)}}
 
 
   </div>
+  {%endif%}
   <div class="row">
     <div class="col-md-8">
+      <div class="jumbotron">
+        <h1>{{data}}</h1>
+      </div>
       <div class="container">
 
 

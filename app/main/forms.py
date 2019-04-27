@@ -13,3 +13,6 @@ class AdminBlog(FlaskForm):
     title=StringField("Title",validators=[Required()])
     body=TextAreaField("Blog Body")
     submit=SubmitField("Submit")
+
+class DeleteBlog(FlaskForm):
+    delete=SubmitField("Delete this Blog")

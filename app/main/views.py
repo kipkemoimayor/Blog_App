@@ -1,6 +1,6 @@
 from . import main
 from flask import render_template,redirect,url_for,flash,request
-from .forms import CommentForm,AdminBlog
+from .forms import CommentForm,AdminBlog,DeleteBlog
 from .. import db
 import markdown2
 from ..models import Blogs,Comments
@@ -32,7 +32,9 @@ def read_blog(id):
     blog_id=id
     title="Blog"
     message="Welcome to my Blog"
+    blog=Blogs.query.filter_by(id=id).first()
     blogs=Blogs.query.all()
+    data=blog.title
     form = CommentForm()
 
     if form.validate_on_submit():
@@ -42,7 +44,16 @@ def read_blog(id):
 
 
 
-    format_blog=markdown2.markdown(blogs[id-1].body,extras=["code-friendly", "fenced-code-blocks"])
+    format_blog=markdown2.markdown(blog.body,extras=["code-friendly", "fenced-code-blocks"])
 
     blog_comment=Comments.query.filter_by(blog_id=id).all()
-    return render_template("read_blog.html",blogComment=blog_comment,format_blog=format_blog,message=message,title=title,comments=form,blogs=blogs,id=id)
+
+
+    del_form=DeleteBlog()
+    if del_form.validate_on_submit():
+        dele=Blogs.query.filter_by(id=id).first()
+        db.session.delete(dele)
+        db.session.commit()
+        return redirect(url_for('main.index'))
+
+    return render_template("read_blog.html",deleform=del_form,data=data,blogComment=blog_comment,format_blog=format_blog,message=message,title=title,comments=form,blogs=blogs,id=id)
