@@ -1,0 +1,45 @@
+{%extends 'base.html'%}
+{%import "bootstrap/wtf.html" as wtf%}
+{%block content%}
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>{{message}}</h1>
+
+
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="container">
+
+        
+        <p>{{format_blog|safe}}</p>
+
+
+        <br>
+        <hr class="bg-info">
+        <h1>Comments....</h1>
+        <div class="container">
+          <div class="">
+
+            {{wtf.quick_form(comments)}}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div id="fixed" class="col-md-4">
+      <h1>Links</h1>
+      <hr class="bg-success">
+      <ul class="list-group">
+        {%for blog in blogs%}
+        <li class="list-group-item"><a href="/read_blog/title/{{blog.id}}">{{blog.title}}</a></li>
+        {%endfor%}
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+{%endblock%}
