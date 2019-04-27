@@ -43,6 +43,17 @@ class Comments(db.Model):
     email=db.Column(db.String())
     username=db.Column(db.String())
     comment=db.Column(db.String())
+    blog_id=db.Column(db.Integer)
+    # user_id=db.Column(db.Integer,db.ForeignKey("users.id"))
+
+    def save_comments(self):
+        db.session.add(self);
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,id):
+        comments=Comments.query.filter_by(blog_id=id).all()
+        return comments
 
 
 

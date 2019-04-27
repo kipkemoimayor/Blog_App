@@ -11,13 +11,19 @@
     <div class="col-md-8">
       <div class="container">
 
-        
+
         <p>{{format_blog|safe}}</p>
 
 
         <br>
         <hr class="bg-info">
         <h1>Comments....</h1>
+        <div class="">
+          {%for con in blogComment%}
+            <p>{{con.comment}}</p>
+          {%endfor%}
+
+        </div>
         <div class="container">
           <div class="">
 
