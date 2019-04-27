@@ -11,10 +11,11 @@ from ..models import Blogs
 def index():
     title="Blog"
     message="Welcome to my Blog"
+    blogs=Blogs.query.all()
     form = CommentForm()
-    return render_template("index.html",message=message,title=title,comments=form)
+    return render_template("index.html",message=message,title=title,comments=form,blogs=blogs)
 
-@main.route("/new_blog",methods=["POST"])
+@main.route("/new_blog",methods=["POST","GET"])
 def new_blog():
     form=AdminBlog()
     if form.validate_on_submit():

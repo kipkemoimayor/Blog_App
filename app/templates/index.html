@@ -31,7 +31,9 @@
       <h1>Links</h1>
       <hr class="bg-success">
       <ul class="list-group">
-        <li class="list-group-item"><a href="/{{1}}">Major blog</a></li>
+        {%for blog in blogs%}
+        <li class="list-group-item"><a href="/">{{blog.title}}</a></li>
+        {%endfor%}
 
       </ul>
     </div>
