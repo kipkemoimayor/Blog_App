@@ -1,0 +1,118 @@
+.one{
+  border: 1px solid #676D67;
+  border-width: thin;
+}
+.on{
+  margin: 5px;
+}
+.one:hover{
+  border-color: #79D3F7;
+  box-shadow: 0px 5px 10px #79D3F7;
+  transition: 250ms;
+}
+.container-fluid{
+  margin: 1px;
+}
+.title{
+  background-color: #305872  !important;
+  color: white;
+}
+.title:hover{
+  background-color: #727C82 !important;
+  transition: 300ms;
+}
+span{
+  display: none;
+  color: white;
+}
+.vom{
+
+  color: #846;
+}
+.main{
+  background-image: url(../img/idea.jpg);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: darken;
+  height: 53vh;
+  text-align: center;
+  text-transform: capitalize;
+  color: white;
+  font-weight: 400;
+  background-color: rgba(0,0,0,0.3) !important;
+}
+h1{
+  text-align: center;
+}
+.ai{
+  background-image: url(../img/idea.jpg);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: darken;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 400;
+  background-color: rgba(0,0,0,0.3) !important;
+}
+.cat{
+  height: 250px;
+}
+
+#R,#IoT,#D{
+  display: none;
+}
+/* @media screen and  (man-width:350px) {
+  img{
+
+    max-width: 100%;
+    display:block;
+    height: auto;
+  }
+} */
+img{
+
+  max-width: 100%;
+  display:block;
+  height: 400px;
+}
+
+#bg{
+  background-image: url(../img/idea.jpg);
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  color: white;
+}
+.profile{
+  display: none;
+}
+#like,#dislike{
+  float: right;
+}
+.gnome{
+  color:#997;
+}
+.body{
+  background-color: #1F3849;
+}
+.pitch{
+  text-align:center;
+  text-transform: capitalize;
+}
+/* #pitch{
+  text-transform: capitalize;
+} */
+#spinner{
+  display: none;
+  margin: auto;
+  width: 20%;
+
+}
+#sho{
+  color:#16215B;
+}
