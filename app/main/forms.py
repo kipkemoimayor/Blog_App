@@ -11,5 +11,5 @@ class CommentForm(FlaskForm):
 class AdminBlog(FlaskForm):
 
     title=StringField("Title",validators=[Required()])
-    body=TextAreaField("Blog Body",validators=[Required()])
+    body=TextAreaField("Blog Body")
     submit=SubmitField("Submit")

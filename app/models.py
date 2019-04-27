@@ -29,6 +29,23 @@ class Users(UserMixin,db.Model):
     def __repr__(self):
         return f"User {self.username}"
 
+class Blogs(db.Model):
+    __tablename__='blogs'
+    id=db.Column(db.Integer,primary_key=True)
+    title=db.Column(db.String())
+    body=db.Column(db.String())
+
+
+
+class Comments(db.Model):
+    __tablename__='comments'
+    id=db.Column(db.Integer,primary_key=True)
+    email=db.Column(db.String())
+    username=db.Column(db.String())
+    comment=db.Column(db.String())
+
+
+
 
 
 class Role(db.Model):
