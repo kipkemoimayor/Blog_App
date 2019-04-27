@@ -1,5 +1,5 @@
 class Config:
-    pass
+    SECRET_KEY="collins141"
 
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://collo:collins@localhost/blog'
