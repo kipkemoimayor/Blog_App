@@ -10,6 +10,6 @@ class CommentForm(FlaskForm):
 
 class AdminBlog(FlaskForm):
 
-    title=StringField("Your name",validators=[Required()])
-    body=TextAreaField("Comment",validators=[Required()])
+    title=StringField("Title",validators=[Required()])
+    body=TextAreaField("Blog Body",validators=[Required()])
     submit=SubmitField("Submit")

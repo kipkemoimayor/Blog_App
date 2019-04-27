@@ -18,7 +18,7 @@
       {%if current_user.is_authenticated%}
       <li class="nav-item">
 
-        <a class="nav-link" href="#">Post A new Blog</a>
+        <a class="nav-link" href="{{url_for('main.new_blog')}}">Post A new Blog</a>
       </li>
       {%endif%}
       <li class="nav-item dropdown">
