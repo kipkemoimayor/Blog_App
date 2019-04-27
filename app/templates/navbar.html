@@ -1,6 +1,6 @@
 <!--Navbar -->
 <nav class="mb-1 navbar navbar sticky-top  navbar-expand-lg navbar-dark secondary-color lighten-1">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/">Blog</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,19 +8,22 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home
+        <a class="nav-link" href="/">Home
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
-      </li>
+      </li> -->
+      {%if current_user.is_authenticated%}
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+
+        <a class="nav-link" href="#">Post A new Blog</a>
       </li>
+      {%endif%}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Dropdown
+          aria-haspopup="true" aria-expanded="false">More
         </a>
         <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
           <a class="dropdown-item" href="#">Action</a>
