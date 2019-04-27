@@ -11,7 +11,7 @@ class Users(UserMixin,db.Model):
     __tablename__='users'
 
     id=db.Column(db.Integer,primary_key=True)
-    username=db.Column(db.String(250)index=True)
+    username=db.Column(db.String(250),index=True)
     email=db.Column(db.String(250),unique=True,index=True)
     pass_secure=db.Column(db.String(250))
 
