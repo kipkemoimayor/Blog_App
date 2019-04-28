@@ -18,12 +18,13 @@ def index():
     top_blog=Blogs.query.all()
     top_blog.reverse()
     topBlog=top_blog[0:1]
+    commento=Comments.query.filter_by(blog_id=500).all()
     form = CommentForm()
     if form.validate_on_submit():
         comments=Comments(blog_id=500,email=form.email.data,username=form.name.data,comment=form.comment.data)
         comments.save_comments()
         return redirect(url_for('main.index'))
-    return render_template("index.html",topBlog=topBlog,quote=quote,message=message,title=title,comments=form,blogs=blogs)
+    return render_template("index.html",commento=commento,topBlog=topBlog,quote=quote,message=message,title=title,comments=form,blogs=blogs)
 
 @main.route("/new_blog",methods=["POST","GET"])
 def new_blog():

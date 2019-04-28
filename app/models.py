@@ -2,6 +2,7 @@ from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import UserMixin
 from .import login_manager
+from datetime import datetime
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -47,6 +48,7 @@ class Comments(db.Model):
     username=db.Column(db.String())
     comment=db.Column(db.String())
     blog_id=db.Column(db.Integer)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
     # user_id=db.Column(db.Integer,db.ForeignKey("users.id"))
 
     def save_comments(self):
