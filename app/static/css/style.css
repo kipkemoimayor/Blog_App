@@ -11,3 +11,26 @@ img{
   display:block;
   height: 400px;
 }
+#bac{
+  background-image: url(../img/top.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  color: white;
+  font-weight: 400;
+  background-color: rgba(0,0,1,0.9) !important;
+  position: relative;
+  top:-5px;
+
+}
+#h1{
+  text-decoration: underline;
+}
+pre{
+  background-color: #6478;
+}
+.bts:hover{
+  color:black;
+}

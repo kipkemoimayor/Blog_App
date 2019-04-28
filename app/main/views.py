@@ -9,14 +9,21 @@ from ..email import mail_message
 
 
 
-@main.route("/")
+@main.route("/",methods=['POST','GET'])
 def index():
     quote=get_quote()
     title="Blog"
-    message="Welcome to my Blog"
+    message="Pythoning Tutorials"
     blogs=Blogs.query.all()
+    top_blog=Blogs.query.all()
+    top_blog.reverse()
+    topBlog=top_blog[0:1]
     form = CommentForm()
-    return render_template("index.html",quote=quote,message=message,title=title,comments=form,blogs=blogs)
+    if form.validate_on_submit():
+        comments=Comments(blog_id=500,email=form.email.data,username=form.name.data,comment=form.comment.data)
+        comments.save_comments()
+        return redirect(url_for('main.index'))
+    return render_template("index.html",topBlog=topBlog,quote=quote,message=message,title=title,comments=form,blogs=blogs)
 
 @main.route("/new_blog",methods=["POST","GET"])
 def new_blog():
