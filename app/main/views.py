@@ -5,6 +5,7 @@ from .. import db
 import markdown2
 from ..models import Blogs,Comments
 from ..request import get_quote
+from ..email import mail_message
 
 
 
@@ -19,15 +20,23 @@ def index():
 
 @main.route("/new_blog",methods=["POST","GET"])
 def new_blog():
+    #query all emails
+    emails=Comments.query.all()
+    all_emails=[]
+    for emal in emails:
+        all_emails.append(emal.email)
+
+
     form=AdminBlog()
     if form.validate_on_submit():
         blog=Blogs(title=form.title.data,body=form.body.data)
         db.session.add(blog)
         db.session.commit()
+        mail_message("Hello A new Blog has been posted","email/welcome_user","")
         return redirect(url_for('main.index'))
 
     title="Write a blog"
-    return render_template("new_blog.html",title=title,newBlog=form)
+    return render_template("new_blog.html",title=title,newBlog=form,all_emails=all_emails)
 
 @main.route("/read_blog/title/<int:id>/",methods=['GET','POST'])
 def read_blog(id):

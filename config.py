@@ -5,6 +5,21 @@ class Config:
     SIMPLEMDE_USE_CDN = True
     QUOTE_BASE_URL="http://quotes.stormconsultancy.co.uk/random.json"
 
+    '''
+    mail config
+    '''
+    # DEBUG=False
+    # BCRYPT_LOG_ROUNDS = 13
+    # WTF_CSRF_ENABLED = True
+    # DEBUG_TB_ENABLED = False
+    # DEBUG_TB_INTERCEPT_REDIRECTS = False
+
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
 class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://collo:collins@localhost/blog'
     DEBUG=True
