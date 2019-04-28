@@ -1,9 +1,9 @@
 from . import main
-from flask import render_template,redirect,url_for,flash,request
+from flask import render_template,redirect,url_for,flash,request,abort
 from .forms import CommentForm,AdminBlog,DeleteBlog,DeleteComment
 from .. import db
 import markdown2
-from ..models import Blogs,Comments
+from ..models import Blogs,Comments,Users
 from ..request import get_quote
 from ..email import mail_message
 
@@ -79,6 +79,11 @@ def read_blog(id):
 
     return render_template("read_blog.html",deleform=del_form,data=data,blogComment=blog_comment,format_blog=format_blog,message=message,title=title,comments=form,blogs=blogs,id=id)
 
+#profile pic
+@main.rout("/profile/<uname>")
+def profile(uname):
+    user=Users.query.filter_by(username=uname).first()
+    if user is None:
+        abort(404)
 
-# @main.route("/read_blog/title/<int:id>",methods=['GET','POST'])
-# def del_comment(id):
+    return render_template("profile/profile.html")
