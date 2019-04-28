@@ -1,7 +1,7 @@
 from . import main
 from flask import render_template,redirect,url_for,flash,request,abort
 from .forms import CommentForm,AdminBlog,DeleteBlog,DeleteComment,UpdateProfile
-from .. import db
+from .. import db,photos
 import markdown2
 from ..models import Blogs,Comments,Users
 from ..request import get_quote

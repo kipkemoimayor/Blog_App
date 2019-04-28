@@ -5,6 +5,8 @@ class Config:
     SIMPLEMDE_USE_CDN = True
     QUOTE_BASE_URL="http://quotes.stormconsultancy.co.uk/random.json"
 
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
+
     '''
     mail config
     '''

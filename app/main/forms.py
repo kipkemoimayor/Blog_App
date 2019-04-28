@@ -21,6 +21,6 @@ class DeleteComment(FlaskForm):
     delete1=SubmitField("Delete")
 
 class UpdateProfile(FlaskForm):
-    bio=TextAreaField("Tell us abou you ",validators=[Required()])
+    about=TextAreaField("Tell us abou you ",validators=[Required()])
     occupation=StringField("What is yout current Ocupation",validators=[Required()])
     submit=SubmitField("Save")

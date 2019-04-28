@@ -14,7 +14,7 @@
   <!-- Avatar -->
   <div class="avatar mx-auto white">
     {% if user.profile %}
-    <img src="{{url_for('static',filename=user.profile)}}" alt="profile avatar" class="img-responsive rounded-circle">
+    <img src="{{url_for('static',filename=user.profile)}}" alt="profile avatar" class="rounded-circle">
     {%else%}
     <img src="/static/img/def.svg" alt="profile avatar" class="img-responsive rounded-circle">
     {% endif %}
@@ -24,6 +24,7 @@
   <div class="card-body">
     <!-- Name -->
     <h4 class="card-title">{{user.username| capitalize}}</h4>
+    <h5>{{user.occupation}}</h5>
     <hr class="default-color">
     <!-- Quotation -->
     <h4>Profile Details</h4>
