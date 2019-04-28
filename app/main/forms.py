@@ -16,3 +16,6 @@ class AdminBlog(FlaskForm):
 
 class DeleteBlog(FlaskForm):
     delete=SubmitField("Delete this Blog")
+
+class DeleteComment(FlaskForm):
+    delete1=SubmitField("Delete")

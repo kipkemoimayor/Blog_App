@@ -27,6 +27,9 @@
         <div class="">
           {%for con in blogComment%}
             <p>{{con.comment}}</p>
+              {%if current_user.is_authenticated%}
+              {{wtf.quick_form(delecomment)}}
+              {%endif%}
           {%endfor%}
 
         </div>

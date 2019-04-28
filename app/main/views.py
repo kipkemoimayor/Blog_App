@@ -1,6 +1,6 @@
 from . import main
 from flask import render_template,redirect,url_for,flash,request
-from .forms import CommentForm,AdminBlog,DeleteBlog
+from .forms import CommentForm,AdminBlog,DeleteBlog,DeleteComment
 from .. import db
 import markdown2
 from ..models import Blogs,Comments
@@ -55,5 +55,18 @@ def read_blog(id):
         db.session.delete(dele)
         db.session.commit()
         return redirect(url_for('main.index'))
+    # del_comment=DeleteComment()
+    # if del_comment.validate_on_submit():
+    #     dele_com=Comments.query.filter_by(blog_id=id).all()
+    #     db.session.delete(dele_com)
+    #     db.session.commit()
+    #
+    #     return redirect(url_for('main.read_blog',id=blog_id))
+
+
 
     return render_template("read_blog.html",deleform=del_form,data=data,blogComment=blog_comment,format_blog=format_blog,message=message,title=title,comments=form,blogs=blogs,id=id)
+
+
+# @main.route("/read_blog/title/<int:id>",methods=['GET','POST'])
+# def del_comment(id):
