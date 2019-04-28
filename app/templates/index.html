@@ -4,6 +4,12 @@
 <div class="container-fluid">
   <div class="jumbotron">
     <h1>{{message}}</h1>
+    <p>How can a great day start ? with a good inspiration</p>
+    {%for quo in quote%}
+      {{quo.quote}}
+      <i>{{quo.author}}</i>
+
+    {%endfor%}
 
 
   </div>

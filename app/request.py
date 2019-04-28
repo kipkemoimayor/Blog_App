@@ -1,6 +1,6 @@
 from .models import Quote
 import urllib.request,json
-from app import app
+
 
 
 base_url=None
@@ -12,7 +12,7 @@ def configure_request(app):
 def get_quote():
     get_quote_url=base_url.format()
     with urllib.request.urlopen(get_quote_url) as url:
-        get_quote_data=url.reads()
+        get_quote_data=url.read()
         get_quote_response=json.loads(get_quote_data)
         quote_results=None
         quote_results=get_quote_response
@@ -23,10 +23,11 @@ def get_quote():
 
 def process_result(quote_list):
     quote_result=[]
-    for quote in quote_list:
-        quote=quote.get("quote")
 
-        quote_obj=Quote(quote)
-        quote_result.append(quote_obj)
+    quote=quote_list
+    author=quote_list
+
+    quote_obj=Quote(quote,author)
+    quote_result.append(quote_obj.quote)
 
     return quote_result

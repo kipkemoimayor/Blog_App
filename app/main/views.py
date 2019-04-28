@@ -4,16 +4,18 @@ from .forms import CommentForm,AdminBlog,DeleteBlog,DeleteComment
 from .. import db
 import markdown2
 from ..models import Blogs,Comments
+from ..request import get_quote
 
 
 
 @main.route("/")
 def index():
+    quote=get_quote()
     title="Blog"
     message="Welcome to my Blog"
     blogs=Blogs.query.all()
     form = CommentForm()
-    return render_template("index.html",message=message,title=title,comments=form,blogs=blogs)
+    return render_template("index.html",quote=quote,message=message,title=title,comments=form,blogs=blogs)
 
 @main.route("/new_blog",methods=["POST","GET"])
 def new_blog():

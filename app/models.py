@@ -56,8 +56,9 @@ class Comments(db.Model):
         return comments
 
 class Quote:
-    def __init__(self,quote):
+    def __init__(self,quote,author):
         self.quote=quote
+        self.author=author
 
 
 
