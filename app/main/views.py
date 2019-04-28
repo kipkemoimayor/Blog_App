@@ -1,6 +1,6 @@
 from . import main
 from flask import render_template,redirect,url_for,flash,request,abort
-from .forms import CommentForm,AdminBlog,DeleteBlog,DeleteComment
+from .forms import CommentForm,AdminBlog,DeleteBlog,DeleteComment,UpdateProfile
 from .. import db
 import markdown2
 from ..models import Blogs,Comments,Users
@@ -80,10 +80,36 @@ def read_blog(id):
     return render_template("read_blog.html",deleform=del_form,data=data,blogComment=blog_comment,format_blog=format_blog,message=message,title=title,comments=form,blogs=blogs,id=id)
 
 #profile pic
-@main.rout("/profile/<uname>")
+@main.route("/profile/<uname>")
 def profile(uname):
     user=Users.query.filter_by(username=uname).first()
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html")
+    return render_template("profile/profile.html",user=user)
+
+@main.route("/profile/<uname>/update",methods=['GET','POST'])
+def update_profile(uname):
+    user=Users.query.filter_by(username=uname).first()
+    if user is None:
+        abort(404)
+    form =UpdateProfile()
+    if form.validate_on_submit():
+        user.about=form.about.data
+        user.occupation=form.occupation.data
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for(".profile",uname=user.username))
+
+    return render_template("profile/update.html",form=form)
+
+@main.route('/user/<uname>/update/pic',methods= ['POST'])
+def update_pic(uname):
+    user = Users.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile= path
+        db.session.commit()
+    return redirect(url_for('main.profile',uname=uname))
