@@ -37,6 +37,13 @@ $(document).ready(function () {
     $(".profiles").hide()
   })
 
+  $("#write").click(function(){
+
+    $(".com").slideDown(2000)
+      $(".com").show()
+
+  })
+
 
 
 

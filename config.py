@@ -10,15 +10,16 @@ class Config:
     '''
     mail config
     '''
-    # DEBUG=False
-    # BCRYPT_LOG_ROUNDS = 13
-    # WTF_CSRF_ENABLED = True
-    # DEBUG_TB_ENABLED = False
-    # DEBUG_TB_INTERCEPT_REDIRECTS = False
+    DEBUG=False
+    BCRYPT_LOG_ROUNDS = 13
+    WTF_CSRF_ENABLED = True
+    DEBUG_TB_ENABLED = False
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
 
     MAIL_SERVER = 'smtp.googlemail.com'
-    MAIL_PORT = 587
-    MAIL_USE_TLS = True
+    MAIL_PORT = 465
+    MAIL_USE_SSL=True
+    MAIL_USE_TLS = False
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 

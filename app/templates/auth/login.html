@@ -2,12 +2,12 @@
 {%import  'bootstrap/wtf.html' as wtf%}
 {%block content%}
 <div class="container">
-  <h1>Login</h1>
   <div class="row">
     <div class="col-md-3">
 
     </div>
     <div class="col-md-6">
+        <h1>Login</h1>
       <!--Flash message -->
      {% for message in get_flashed_messages() %}
        <div class="alert alert-danger">
