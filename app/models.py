@@ -55,6 +55,9 @@ class Comments(db.Model):
         comments=Comments.query.filter_by(blog_id=id).all()
         return comments
 
+class Quote:
+    def __init__(self,quote):
+        self.quote=quote
 
 
 

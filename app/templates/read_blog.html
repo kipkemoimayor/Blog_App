@@ -28,7 +28,7 @@
           {%for con in blogComment%}
             <p>{{con.comment}}</p>
               {%if current_user.is_authenticated%}
-              {{wtf.quick_form(delecomment)}}
+              <a href="" data-method="delete" data-confirm="Are you sure?">Delete</a>
               {%endif%}
           {%endfor%}
 
@@ -48,7 +48,7 @@
       <hr class="bg-success">
       <ul class="list-group">
         {%for blog in blogs%}
-        <li class="list-group-item"><a href="/read_blog/title/{{blog.id}}">{{blog.title}}</a></li>
+        <li class="list-group-item"><a href="/read_blog/title/{{blog.id}}/">{{blog.title}}</a></li>
         {%endfor%}
 
       </ul>

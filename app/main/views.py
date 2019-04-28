@@ -27,7 +27,7 @@ def new_blog():
     title="Write a blog"
     return render_template("new_blog.html",title=title,newBlog=form)
 
-@main.route("/read_blog/title/<int:id>",methods=['GET','POST'])
+@main.route("/read_blog/title/<int:id>/",methods=['GET','POST'])
 def read_blog(id):
     blog_id=id
     title="Blog"
@@ -54,6 +54,7 @@ def read_blog(id):
         dele=Blogs.query.filter_by(id=id).first()
         db.session.delete(dele)
         db.session.commit()
+        # flash("Blog deleted sucessfully","success")
         return redirect(url_for('main.index'))
     # del_comment=DeleteComment()
     # if del_comment.validate_on_submit():
