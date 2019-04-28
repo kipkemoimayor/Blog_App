@@ -5,15 +5,19 @@
     {%if current_user.is_authenticated%}
   <div class="jumbotron">
     <h1>{{data}}</h1>
-    {{wtf.quick_form(deleform)}}
+    <button id="dele" class="btn btn-outline-danger" type="button" name="button">Click here if you want to delete your blog</button>
+    <div class="del animated fadeIn">
+        {{wtf.quick_form(deleform)}}
+    </div>
+
 
 
   </div>
   {%endif%}
   <div class="row">
     <div class="col-md-8">
-      <div class="jumbotron">
-        <h1>{{data}}</h1>
+      <div class="jumbo jumbotron">
+        <h1 id="tutor">{{data}}  Tutorial</h1>
       </div>
       <div class="container">
 
@@ -23,20 +27,44 @@
 
         <br>
         <hr class="bg-info">
-        <h1>Comments....</h1>
         <div class="">
           {%for con in blogComment%}
-            <p>{{con.comment}}</p>
+          <div class="comments card">
+            <div class="card-header">
+
+              <p>{{con.username}} commented on {{con.posted}}</p>
+            </div>
+            <div class="card-body">
+                <p>{{con.comment}}</p>
+            </div>
+            <div class="card-footer">
+
               {%if current_user.is_authenticated%}
               <a href="" data-method="delete" data-confirm="Are you sure?">Delete</a>
               {%endif%}
+            </div>
+          </div>
           {%endfor%}
 
         </div>
         <div class="container">
-          <div class="">
+          <div class="row">
+            <div class="col-md-2">
 
-            {{wtf.quick_form(comments)}}
+            </div>
+            <div class="col-md-8">
+              <h3>Write a comment</h3>
+              <div class="">
+
+                {{wtf.quick_form(comments)}}
+              </div>
+
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+
           </div>
 
         </div>
@@ -44,7 +72,7 @@
 
     </div>
     <div id="fixed" class="col-md-4">
-      <h1>Links</h1>
+      <h1>Tutorials</h1>
       <hr class="bg-success">
       <ul class="list-group">
         {%for blog in blogs%}

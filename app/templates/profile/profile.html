@@ -40,7 +40,7 @@
 
   </div>
   <button id="change" class="btn btn-secondary animated fadeIn" type="button" name="button">Change Profile</button>
-<div class="profile animated fadeIn">
+<div class="profiles animated fadeIn">
   {%if user==current_user%}
   <form class="form-group" action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype="multipart/form-data">
     <input class="form-control" type="file" name="photo" value="" required>
@@ -58,7 +58,7 @@
 
   </div>
   <div class="col-md-8">
-    <h1>My pitch Ideas</h1>
+    <h1>My Blog Profile</h1>
     <div class="row">
 
 
@@ -71,6 +71,7 @@
 
           <div class="no">
 
+
           </div>
           <!-- Card -->
 <div class="card card-cascade wider reverse">
@@ -79,16 +80,16 @@
   <div class="view view-cascade overlay">
 
       <div class="mask rgba-white-slight"></div>
-        <h1>You have No Pitch ideas yet</h1>
+        <h1 style="text-align:center">Post your blog </h1>
   </div>
 
   <!-- Card content -->
   <div class="card-body card-body-cascade text-center">
 
     <!-- Title -->
-    <h4 class="card-title">Hello {{current_user.username}} <strong>Create your new Amazing Idea </strong></h4>
+    <h4 class="card-title">Hello {{current_user.username}} <strong>Create A new Blog Here </strong></h4>
     <!-- Subtitle -->
-    <h6 class="font-weight-bold indigo-text py-2"><a href=""><button class="btn default-color" type="button" name="button">Get started Here</button></a></h6>
+    <h6 class="font-weight-bold indigo-text py-2"><a href="{{url_for('main.new_blog')}}"><button class="btn default-color" type="button" name="button">Get started Here</button></a></h6>
 
   </div>
 

@@ -35,5 +35,16 @@ pre{
   color:black;
 }
 .comments{
-  margin: 6px;
+  margin: 15px;
+}
+#tutor{
+  text-transform: capitalize;
+  color: #395D8C;
+  text-align: center;
+}
+.del{
+  display: none;
+}
+.profiles{
+  display: none;
 }
