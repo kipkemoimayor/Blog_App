@@ -48,7 +48,7 @@ def new_blog():
         blog=Blogs(title=form.title.data,body=form.body.data)
         db.session.add(blog)
         db.session.commit()
-        # mail_message("Hello A new Blog has been posted","email/welcome_user","")
+        mail_message("Hello A new Blog has been posted","email/welcome_user","")
         return redirect(url_for('main.index'))
 
     title="Write a blog"
