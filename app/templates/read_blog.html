@@ -3,8 +3,8 @@
 {%block content%}
 <div class="container-fluid">
     {%if current_user.is_authenticated%}
-  <div class="jumbotron">
-    <h1>{{data}}</h1>
+  <div id="jumbo" class="jumbotron bg-dark">
+    <h1>{{data}} <code>Admin mode</code></h1>
     <button id="dele" class="btn btn-outline-danger" type="button" name="button">Click here if you want to delete your blog</button>
     <div class="del animated fadeIn">
         {{wtf.quick_form(deleform)}}
@@ -54,7 +54,13 @@
             </div>
             <div class="col-md-8">
             <a id="write" class="btn btn-outline-default">Write a comment</a>
+
               <div class="com">
+                <br>
+                <br>
+                <i class="alert alert-info"><b>By commenting you automatically subscribe to email subscription</b></i>
+                <br>
+                <br>
 
                 {{wtf.quick_form(comments)}}
               </div>
