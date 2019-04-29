@@ -12,14 +12,6 @@ from ..email import mail_message
 @main.route("/",methods=['POST','GET'])
 def index():
     quote=get_quote()
-    del_comment=DeleteComment()
-
-    if del_comment.validate_on_submit():
-        dele_com=Comments.query.filter_by(blog_id=id).first()
-        db.session.delete(dele_com)
-        db.session.commit()
-
-        return redirect(url_for('main.read_blog',id=blog_id))
     title="Blog"
     message="Pythoning Tutorials"
     blogs=Blogs.query.all()
@@ -32,7 +24,7 @@ def index():
         comments=Comments(blog_id=500,email=form.email.data,username=form.name.data,comment=form.comment.data)
         comments.save_comments()
         return redirect(url_for('main.index'))
-    return render_template("index.html",del_comment=del_comment,commento=commento,topBlog=topBlog,quote=quote,message=message,title=title,comments=form,blogs=blogs)
+    return render_template("index.html",commento=commento,topBlog=topBlog,quote=quote,message=message,title=title,comments=form,blogs=blogs)
 
 @main.route("/new_blog",methods=["POST","GET"])
 def new_blog():
