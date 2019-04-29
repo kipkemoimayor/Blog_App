@@ -51,3 +51,8 @@ pre{
 .com{
   display: none;
 }
+#login{
+  max-width: 100%;
+  display:block;
+  height: 200px;
+}
